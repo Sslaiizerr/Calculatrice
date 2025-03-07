@@ -1,6 +1,7 @@
 const screen = document.getElementById("screen");
 
 let decimalPoint = false;
+let isCheckedBtnPlus = false;
 
 // Récupération de tous les boutons dans une liste
 const allButtons = document.getElementsByClassName("touche");
@@ -22,13 +23,33 @@ function getButtonText(event) {
 
     } else if (id == "btnPoint") {
         if (!decimalPoint) {
-            setDecimalPoint();
+            decimalPoint = true;
             renderView(String(nombre) + ".");
+        }
+    
+    } else if (id == 'btnPlus') {
+        if (!isCheckedBtnPlus) {
+            saveValueNombre();
+            isCheckedBtnPlus = true;
+            
+        } else {
+            nb = addition();
+            saveValueNombre();
+            renderView(nb);
         }
 
     } else if (id == "btnCE") {
-        resetNombre();
-        renderView(nombre);
+        nb = resetNombre();
+        renderView(nb);
+
+    } else if (id == 'btnEXE') {
+        if (isCheckedBtnPlus) {
+            addition();
+            isCheckedBtnPlus = false;
+        }
+
+        nb = result();
+        renderView(nb);
     }
 }
 
