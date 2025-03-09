@@ -24,7 +24,7 @@ function ajoutChiffre(chiffre) {
 
 function resetNombre() {
 	nombre = 0;
-	decimalExposant = 0;
+	decimalExposant = 1;
 	saveValue = 0;
 
 	return nombre
