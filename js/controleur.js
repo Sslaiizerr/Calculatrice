@@ -29,13 +29,17 @@ function getButtonText(event) {
 
     } else if (id == 'btnPlus') {
         if (!isCheckedBtnPlus) {
-            saveValueNombre();
-            console.log("J'ai save")
+            nb = saveValueNombre();
+            // console.log("J'ai save");
+            // console.log("saveValue = " + saveValue);
+            // console.log("nombre = " + nombre);
+            // console.log("nb = " + nb);
             isCheckedBtnPlus = true;
+            renderView(nb);
 
         } else {
             nb = addition();
-            console.log("Addition faite")
+            console.log("Addition faite");
             saveValueNombre();
             renderView(nb);
         }

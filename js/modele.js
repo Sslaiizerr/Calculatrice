@@ -26,13 +26,17 @@ function resetNombre() {
 	nombre = 0;
 	decimalExposant = 0;
 	saveValue = 0;
+
 	return nombre
 }
 
 function saveValueNombre() {
 	saveValue = nombre;
 	// Pour préparer à la saisie du prochain nombre
-	resetNombre();
+	nombre = 0;
+	decimalExposant = 0;
+
+	return nombre;
 }
 
 function addition() {
@@ -44,5 +48,6 @@ function addition() {
 
 function result() {
 	saveValue = nombre;
+
 	return saveValue
 }
