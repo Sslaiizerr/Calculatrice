@@ -34,7 +34,7 @@ function saveValueNombre() {
 	saveValue = nombre;
 	// Pour préparer à la saisie du prochain nombre
 	nombre = 0;
-	decimalExposant = 0;
+	decimalExposant = 1;
 
 	return nombre;
 }
