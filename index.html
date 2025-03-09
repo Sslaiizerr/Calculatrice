@@ -1,221 +1,194 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/style.css" />
-        <!-- Bootstrap -->
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-        <!-- <link rel="stylesheet" href="bootstrap-4.5.2-dist/css/bootstrap.css"> -->
-        <!-- Titre -->
-        <title>Calculatrice</title>
-        <!-- JS -->
-        <script src="js/modele.js" defer></script>
-        <script src="js/controleur.js" defer></script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="calculatrice">
-                <!-- Ecran -->
-                <div class="ecran">
-                    <p class="affichage" id="screen"></p>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="bootstrap-4.5.2-dist/css/bootstrap.css"> -->
+    <!-- Titre -->
+    <title>Calculatrice</title>
+    <!-- JS -->
+    <script src="js/modele.js" defer></script>
+    <script src="js/controleur.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculatrice">
+            <!-- Ecran -->
+            <div class="ecran">
+                <p class="affichage" id="screen"></p>
+            </div>
+
+            <!-- Boutons mémoire -->
+            <div class="row g-1">
+                <div class="col-3">
+                    <button class="touche btn-memoire" id="btnMP">
+                        M+
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button class="touche btn-memoire" id="btnMS">
+                        MS
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button class="touche btn-memoire" id="btnMR">
+                        MR
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button class="touche btn-supprimer" id="btnCE">
+                        CE
+                    </button>
+                </div>
+            </div>
+
+            <div class="row g-1">
+                <div class="col-3">
+                    <button class="touche btn-memoire" id="btnMM">
+                        M-
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button class="touche btn-memoire" id="btnMC">
+                        MC
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="touche btn-supprimer" id="btnC">
+                        C
+                    </button>
+                </div>
+            </div>
+
+            <!-- Boutons chiffres -->
+            <div class="row g-1">
+                <div class="col-9">
+                    <div class="row g-1">
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="7">
+                                7
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="8">
+                                8
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="9">
+                                9
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row g-1">
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="4">
+                                4
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="5">
+                                5
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="6">
+                                6
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row g-1">
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="1">
+                                1
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="2">
+                                2
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="3">
+                                3
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row g-1">
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="btnPoint">
+                                .
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="0">
+                                0
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="touche btn-chiffre" id="btnFleche">
+                                ←
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Boutons mémoire -->
-                <div class="row g-1">
-                    <div class="col-3">
-                        <button class="touche btn-memoire" id="btnMP">
-                            M+
-                        </button>
-                    </div>
-                    <div class="col-3">
-                        <button class="touche btn-memoire" id="btnMS">
-                            MS
-                        </button>
-                    </div>
-                    <div class="col-3">
-                        <button class="touche btn-memoire" id="btnMR">
-                            MR
-                        </button>
-                    </div>
-                    <div class="col-3">
-                        <button class="touche btn-supprimer" id="btnCE">
-                            CE
-                        </button>
-                    </div>
-                </div>
-
-                <div class="row g-1">
-                    <div class="col-3">
-                        <button class="touche btn-memoire" id="btnMM">
-                            M-
-                        </button>
-                    </div>
-                    <div class="col-3">
-                        <button class="touche btn-memoire" id="btnMC">
-                            MC
-                        </button>
-                    </div>
-                    <div class="col-6">
-                        <button class="touche btn-supprimer" id="btnC">
-                            C
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Boutons chiffres -->
-                <div class="row g-1">
-                    <div class="col-9">
-                        <div class="row g-1">
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="7">
-                                    7
-                                </button>
-                            </div>
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="8">
-                                    8
-                                </button>
-                            </div>
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="9">
-                                    9
-                                </button>
-                            </div>
+                <!-- Boutons opérateurs et changement de présentation pour affichage -->
+                <div class="col-3">
+                    <div class="row g-1">
+                        <div class="col-6">
+                            <button class="touche btn-operateur" id="btnPlusMoins">
+                                +-
+                            </button>
                         </div>
-                        <div class="row g-1">
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="4">
-                                    4
-                                </button>
-                            </div>
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="5">
-                                    5
-                                </button>
-                            </div>
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="6">
-                                    6
-                                </button>
-                            </div>
+                        <div class="col-6">
+                            <button class="touche btn-operateur" id="btnPourcent">
+                                %
+                            </button>
                         </div>
-                        <div class="row g-1">
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="1">
-                                    1
-                                </button>
-                            </div>
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="2">
-                                    2
-                                </button>
-                            </div>
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="3">
-                                    3
-                                </button>
-                            </div>
+                    </div>
+                    <div class="row g-1">
+                        <div class="col-6">
+                            <button class="touche btn-operateur" id="btnMultiplier">
+                                ×
+                            </button>
                         </div>
-                        <div class="row g-1">
-                            <div class="col-4">
-                                <button
-                                    class="touche btn-chiffre"
-                                    id="btnPoint"
-                                >
-                                    .
-                                </button>
-                            </div>
-                            <div class="col-4">
-                                <button class="touche btn-chiffre" id="0">
-                                    0
-                                </button>
-                            </div>
-                            <div class="col-4">
-                                <button
-                                    class="touche btn-chiffre"
-                                    id="btnFleche"
-                                >
-                                    ←
-                                </button>
-                            </div>
+                        <div class="col-6">
+                            <button class="touche btn-operateur" id="btnDiviser">
+                                /
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row g-1">
+                        <div class="col-6">
+                            <button class="touche btn-operateur" id="btnPlus">
+                                +
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button class="touche btn-operateur" id="btnMoins">
+                                -
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Boutons opérateurs et changement de présentation pour affichage -->
-                    <div class="col-3">
-                        <div class="row g-1">
-                            <div class="col-6">
-                                <button
-                                    class="touche btn-operateur"
-                                    id="btnPlusMoins"
-                                >
-                                    +-
-                                </button>
-                            </div>
-                            <div class="col-6">
-                                <button
-                                    class="touche btn-operateur"
-                                    id="btnPourcent"
-                                >
-                                    %
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row g-1">
-                            <div class="col-6">
-                                <button
-                                    class="touche btn-operateur"
-                                    id="btnMultiplier"
-                                >
-                                    ×
-                                </button>
-                            </div>
-                            <div class="col-6">
-                                <button
-                                    class="touche btn-operateur"
-                                    id="btnDiviser"
-                                >
-                                    /
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row g-1">
-                            <div class="col-6">
-                                <button
-                                    class="touche btn-operateur"
-                                    id="btnPlus"
-                                >
-                                    +
-                                </button>
-                            </div>
-                            <div class="col-6">
-                                <button
-                                    class="touche btn-operateur"
-                                    id="btnMoins"
-                                >
-                                    -
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Bouton validation -->
-                        <div class="row g-1">
-                            <div class="col-12">
-                                <button
-                                    class="touche btn-validation"
-                                    id="btnEXE"
-                                >
-                                    EXE
-                                </button>
-                            </div>
+                    <!-- Bouton validation -->
+                    <div class="row g-1">
+                        <div class="col-12">
+                            <button class="touche btn-validation" id="btnEXE">
+                                EXE
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

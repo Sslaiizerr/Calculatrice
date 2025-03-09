@@ -1,5 +1,6 @@
 const screen = document.getElementById("screen");
 
+// Variables
 let decimalPoint = false;
 let isCheckedBtnPlus = false;
 
@@ -10,15 +11,14 @@ for (const button of allButtons) {
     button.addEventListener("click", getButtonText);
 }
 
-// Variables
 
-// Fonctions logiques
 function getButtonText(event) {
     let id = event.target.id;
     let nb;
 
     if (Number.isInteger(parseInt(id))) {
         nb = ajoutChiffre(parseInt(id));
+        console.log(id);
         renderView(nb);
 
     } else if (id == "btnPoint") {
@@ -26,14 +26,16 @@ function getButtonText(event) {
             decimalPoint = true;
             renderView(String(nombre) + ".");
         }
-    
+
     } else if (id == 'btnPlus') {
         if (!isCheckedBtnPlus) {
             saveValueNombre();
+            console.log("J'ai save")
             isCheckedBtnPlus = true;
-            
+
         } else {
             nb = addition();
+            console.log("Addition faite")
             saveValueNombre();
             renderView(nb);
         }
