@@ -26,11 +26,8 @@ function resetEverything() {
 	nombre = 0;
 	decimalExposant = 1;
 	saveValue = 0;
-	// Demander au prof si on peut conserver ça ici ou si on doit le
-	// décaler dans le controleur
-	decimalPoint = false;
-  isCheckedBtnPlus = false;
-	isCheckedBtnMoins = false;
+	
+	resetControleur();
 
 	return nombre
 }
@@ -55,7 +52,14 @@ function soustraction() {
 	saveValue -= nombre;
 	nombre = saveValue;
 
-	return saveValue
+	return nombre
+}
+
+function multiplier() {
+	saveValue *= nombre;
+	nombre = saveValue;
+
+	return nombre
 }
 
 function result() {

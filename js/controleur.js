@@ -4,6 +4,7 @@ const screen = document.getElementById("screen");
 let decimalPoint = false;
 let isCheckedBtnPlus = false;
 let isCheckedBtnMoins = false;
+let isCheckedBtnMultiplier = false;
 
 // Récupération de tous les boutons dans une liste
 const allButtons = document.getElementsByClassName("touche");
@@ -25,6 +26,8 @@ function getButtonText(event) {
     } else if (id == "btnPoint") {
         if (!decimalPoint) {
             decimalPoint = true;
+            // Pour afficher à l'utilisateur le point pour signifier
+            // qu'il a bien été prit en compte
             renderView(String(nombre) + ".");
         }
 
@@ -53,6 +56,17 @@ function getButtonText(event) {
             renderView(nb);
         }
 
+    } else if (id == 'btnMultiplier') {
+        if (!isCheckedBtnMultiplier) {
+            nb = saveValueNombre();
+            isCheckedBtnMultiplier = true;
+            renderView(nb);
+        } else {
+            nb = multiplier();
+            saveValueNombre();
+            renderView(nb);
+        }  
+    
     } else if (id == "btnCE") {
         nb = resetEverything();
         renderView(nb);
@@ -64,11 +78,21 @@ function getButtonText(event) {
         } else if (isCheckedBtnMoins) {
             soustraction();
             isCheckedBtnMoins = false;
+        } else if (isCheckedBtnMultiplier) {
+            multiplier();
+            isCheckedBtnMultiplier = false;
         }
 
         nb = result();
         renderView(nb);
     }
+}
+
+function resetControleur() {
+    decimalPoint = false;
+    isCheckedBtnPlus = false;
+	isCheckedBtnMoins = false;
+	isCheckedBtnMultiplier = false;
 }
 
 function renderView(nombre) {
