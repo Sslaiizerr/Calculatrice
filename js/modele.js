@@ -22,10 +22,15 @@ function ajoutChiffre(chiffre) {
 	return nombre;
 }
 
-function resetNombre() {
+function resetEverything() {
 	nombre = 0;
 	decimalExposant = 1;
 	saveValue = 0;
+	// Demander au prof si on peut conserver ça ici ou si on doit le
+	// décaler dans le controleur
+	decimalPoint = false;
+  isCheckedBtnPlus = false;
+	isCheckedBtnMoins = false;
 
 	return nombre
 }
@@ -40,10 +45,17 @@ function saveValueNombre() {
 }
 
 function addition() {
-	nombre += saveValue;
-	saveValue = nombre;
+	saveValue += nombre;
+	nombre = saveValue;
 
 	return nombre
+}
+
+function soustraction() {
+	saveValue -= nombre;
+	nombre = saveValue;
+
+	return saveValue
 }
 
 function result() {

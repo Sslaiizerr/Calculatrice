@@ -3,6 +3,7 @@ const screen = document.getElementById("screen");
 // Variables
 let decimalPoint = false;
 let isCheckedBtnPlus = false;
+let isCheckedBtnMoins = false;
 
 // Récupération de tous les boutons dans une liste
 const allButtons = document.getElementsByClassName("touche");
@@ -18,40 +19,51 @@ function getButtonText(event) {
 
     if (Number.isInteger(parseInt(id))) {
         nb = ajoutChiffre(parseInt(id));
-        console.log(id);
         renderView(nb);
 
+    // Virgule
     } else if (id == "btnPoint") {
         if (!decimalPoint) {
             decimalPoint = true;
             renderView(String(nombre) + ".");
         }
 
+    // Addition
     } else if (id == 'btnPlus') {
         if (!isCheckedBtnPlus) {
             nb = saveValueNombre();
-            // console.log("J'ai save");
-            // console.log("saveValue = " + saveValue);
-            // console.log("nombre = " + nombre);
-            // console.log("nb = " + nb);
             isCheckedBtnPlus = true;
             renderView(nb);
 
         } else {
             nb = addition();
-            console.log("Addition faite");
+            saveValueNombre();
+            renderView(nb);
+        }
+
+    // Soustraction
+    } else if (id == 'btnMoins') {
+        if (!isCheckedBtnMoins) {
+            nb = saveValueNombre();
+            isCheckedBtnMoins = true;
+            renderView(nb);
+        } else {
+            nb = soustraction();
             saveValueNombre();
             renderView(nb);
         }
 
     } else if (id == "btnCE") {
-        nb = resetNombre();
+        nb = resetEverything();
         renderView(nb);
 
     } else if (id == 'btnEXE') {
         if (isCheckedBtnPlus) {
             addition();
             isCheckedBtnPlus = false;
+        } else if (isCheckedBtnMoins) {
+            soustraction();
+            isCheckedBtnMoins = false;
         }
 
         nb = result();
