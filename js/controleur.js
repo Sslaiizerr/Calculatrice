@@ -2,9 +2,7 @@ const screen = document.getElementById("screen");
 
 // Variables
 let decimalPoint = false;
-let isCheckedBtnPlus = false;
-let isCheckedBtnMoins = false;
-let isCheckedBtnMultiplier = false;
+let operateur = '';
 
 // Récupération de tous les boutons dans une liste
 const allButtons = document.getElementsByClassName("touche");
@@ -33,9 +31,9 @@ function getButtonText(event) {
 
     // Addition
     } else if (id == 'btnPlus') {
-        if (!isCheckedBtnPlus) {
+        if (operateur != 'addition') {
+            operateur = 'addition';
             nb = saveValueNombre();
-            isCheckedBtnPlus = true;
             renderView(nb);
 
         } else {
@@ -46,9 +44,9 @@ function getButtonText(event) {
 
     // Soustraction
     } else if (id == 'btnMoins') {
-        if (!isCheckedBtnMoins) {
+        if (operateur != 'soustraction') {
+            operateur = 'soustraction';
             nb = saveValueNombre();
-            isCheckedBtnMoins = true;
             renderView(nb);
         } else {
             nb = soustraction();
@@ -56,31 +54,48 @@ function getButtonText(event) {
             renderView(nb);
         }
 
+    // Multiplication
     } else if (id == 'btnMultiplier') {
-        if (!isCheckedBtnMultiplier) {
+        if (operateur != 'multiplication') {
+            operateur = 'multiplication';
             nb = saveValueNombre();
-            isCheckedBtnMultiplier = true;
             renderView(nb);
         } else {
             nb = multiplier();
             saveValueNombre();
             renderView(nb);
+        }
+
+    // Division
+    } else if (id == 'btnDiviser') {
+        if (operateur != 'division') {
+            operateur = 'division';
+            nb = saveValueNombre();
+            renderView(nb);
+        } else {
+            nb = diviser();
+            saveValueNombre();
+            renderView(nb);
         }  
+    
     
     } else if (id == "btnCE") {
         nb = resetEverything();
         renderView(nb);
 
     } else if (id == 'btnEXE') {
-        if (isCheckedBtnPlus) {
+        if (operateur == 'addition') {
             addition();
-            isCheckedBtnPlus = false;
-        } else if (isCheckedBtnMoins) {
+            operateur = '';
+        } else if (operateur == 'soustraction') {
             soustraction();
-            isCheckedBtnMoins = false;
-        } else if (isCheckedBtnMultiplier) {
+            operateur = '';
+        } else if (operateur == 'multiplication') {
             multiplier();
-            isCheckedBtnMultiplier = false;
+            operateur = '';
+        } else if (operateur == 'division') {
+            diviser();
+            operateur = '';
         }
 
         nb = result();
@@ -89,10 +104,11 @@ function getButtonText(event) {
 }
 
 function resetControleur() {
-    decimalPoint = false;
-    isCheckedBtnPlus = false;
-	isCheckedBtnMoins = false;
-	isCheckedBtnMultiplier = false;
+    operateur = '';
+}
+
+function messageErreur() {
+    alert("Vous ne pouvez pas diviser par 0");
 }
 
 function renderView(nombre) {

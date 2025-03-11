@@ -33,7 +33,13 @@ function resetEverything() {
 }
 
 function saveValueNombre() {
-	saveValue = nombre;
+	// Pour contrer le fait que si l'on clique successivement sur 
+	// addition -> soustraction -> addition
+	// saveValue devienne 0 car nombre deviendra 0 au 2eme clic sur
+	// le bouton
+	if (nombre != 0) {
+		saveValue = nombre;
+	}
 	// Pour préparer à la saisie du prochain nombre
 	nombre = 0;
 	decimalExposant = 1;
@@ -60,6 +66,18 @@ function multiplier() {
 	nombre = saveValue;
 
 	return nombre
+}
+
+function diviser() {
+	if (nombre != 0) {
+		saveValue /= nombre;
+		nombre = saveValue;
+
+		return nombre;
+	}
+
+	messageErreur();
+	return saveValue;
 }
 
 function result() {
