@@ -33,6 +33,7 @@ function getButtonText(event) {
     } else if (id == 'btnPlus') {
         if (operateur != 'addition') {
             operateur = 'addition';
+            // ajoutAHistorique('+');
             nb = saveValueNombre();
             renderView(nb);
 
@@ -46,6 +47,7 @@ function getButtonText(event) {
     } else if (id == 'btnMoins') {
         if (operateur != 'soustraction') {
             operateur = 'soustraction';
+            // ajoutAHistorique('-');
             nb = saveValueNombre();
             renderView(nb);
         } else {
@@ -58,6 +60,7 @@ function getButtonText(event) {
     } else if (id == 'btnMultiplier') {
         if (operateur != 'multiplication') {
             operateur = 'multiplication';
+            // ajoutAHistorique('*');
             nb = saveValueNombre();
             renderView(nb);
         } else {
@@ -70,17 +73,29 @@ function getButtonText(event) {
     } else if (id == 'btnDiviser') {
         if (operateur != 'division') {
             operateur = 'division';
+            // ajoutAHistorique('/');
             nb = saveValueNombre();
             renderView(nb);
         } else {
             nb = diviser();
             saveValueNombre();
             renderView(nb);
-        }  
+        } 
     
+    } else if (id == 'btnPlusMoins') {
+        nb = inverse();
+        renderView(nb);
     
-    } else if (id == "btnCE") {
+    } else if (id == 'btnFleche') {
+        nb = removeChiffre();
+        renderView(nb);
+
+    } else if (id == "btnC") {
         nb = resetEverything();
+        renderView(nb);
+
+    } else if (id == 'btnCE') {
+        nb = resetCalculCourant();
         renderView(nb);
 
     } else if (id == 'btnEXE') {

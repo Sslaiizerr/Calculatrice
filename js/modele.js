@@ -2,6 +2,7 @@
 let nombre = 0;
 let decimalExposant = 1;
 let saveValue = 0;
+let historiqueCalcul = '';
 
 
 // Fonctions du modèle
@@ -22,6 +23,14 @@ function ajoutChiffre(chiffre) {
 	return nombre;
 }
 
+// Fonctions de reset
+function resetCalculCourant() {
+	// Fonction qui reset mais qui garde le calcul courant
+	nombre = 0;
+
+	return nombre
+}
+
 function resetEverything() {
 	nombre = 0;
 	decimalExposant = 1;
@@ -30,6 +39,12 @@ function resetEverything() {
 	resetControleur();
 
 	return nombre
+}
+
+function removeChiffre() {
+	nombre = parseInt(nombre / 10);
+	
+	return nombre;
 }
 
 function saveValueNombre() {
@@ -47,6 +62,8 @@ function saveValueNombre() {
 	return nombre;
 }
 
+
+// Fonctions de calculs (opérateurs)
 function addition() {
 	saveValue += nombre;
 	nombre = saveValue;
@@ -80,8 +97,23 @@ function diviser() {
 	return saveValue;
 }
 
+function inverse() {
+	nombre *= -1;
+	saveValue = nombre;
+
+	return nombre;
+}
+
 function result() {
 	saveValue = nombre;
 
 	return saveValue
+}
+
+// Tentative d'ajout d'un historique de calcul qui pourra être affiché
+// quelque par sur un écran
+function ajoutAHistorique(nouvelElt) {
+	historiqueCalcul += nouvelElt;
+	
+	return historiqueCalcul;
 }
