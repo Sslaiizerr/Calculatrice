@@ -35,15 +35,15 @@ function resetEverything() {
 	nombre = 0;
 	decimalExposant = 1;
 	saveValue = 0;
-	
-	resetControleur();
+
+	resetOperation();
 
 	return nombre
 }
 
 function removeChiffre() {
 	nombre = parseInt(nombre / 10);
-	
+
 	return nombre;
 }
 
@@ -59,7 +59,7 @@ function saveValueNombre() {
 	nombre = 0;
 	decimalExposant = 1;
 
-	return nombre;
+	return saveValue;
 }
 
 
@@ -104,6 +104,13 @@ function inverse() {
 	return nombre;
 }
 
+function pourcentage() {
+	let keepValue = nombre;
+	nombre /= 100;
+
+	return keepValue;
+}
+
 function result() {
 	saveValue = nombre;
 
@@ -114,6 +121,6 @@ function result() {
 // quelque par sur un écran
 function ajoutAHistorique(nouvelElt) {
 	historiqueCalcul += nouvelElt;
-	
+
 	return historiqueCalcul;
 }

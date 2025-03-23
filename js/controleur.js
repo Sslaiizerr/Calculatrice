@@ -11,6 +11,10 @@ for (const button of allButtons) {
     button.addEventListener("click", getButtonText);
 }
 
+// Ajouter des fonctions au getButtonText() pour chaque fonction pour
+// avoir une fonction moins longue
+// Remplacer chaques instructions dans les else if par des fonctions
+
 
 function getButtonText(event) {
     let id = event.target.id;
@@ -21,11 +25,11 @@ function getButtonText(event) {
         renderView(nb);
 
     // Virgule
-    } else if (id == "btnPoint") {
+    } else if (id == 'btnPoint') {
         if (!decimalPoint) {
             decimalPoint = true;
             // Pour afficher à l'utilisateur le point pour signifier
-            // qu'il a bien été prit en compte
+            // qu'il a bien été pris en compte
             renderView(String(nombre) + ".");
         }
 
@@ -80,15 +84,25 @@ function getButtonText(event) {
             nb = diviser();
             saveValueNombre();
             renderView(nb);
-        } 
-    
+        }
+
     } else if (id == 'btnPlusMoins') {
         nb = inverse();
         renderView(nb);
-    
+
     } else if (id == 'btnFleche') {
         nb = removeChiffre();
         renderView(nb);
+
+    // Pourcent
+    } else if (id == 'btnPourcent') {
+        nb = pourcentage();
+        // Pour afficher à l'utilisateur le pourcent pour signifier
+        // qu'il a bien été pris en compte
+        renderView(String(nb) + '%');
+        nb = saveValueNombre();
+        operateur = 'multiplication';
+        console.log(saveValue, nombre);
 
     } else if (id == "btnC") {
         nb = resetEverything();
@@ -101,24 +115,28 @@ function getButtonText(event) {
     } else if (id == 'btnEXE') {
         if (operateur == 'addition') {
             addition();
-            operateur = '';
+            resetOperation();
         } else if (operateur == 'soustraction') {
             soustraction();
-            operateur = '';
+            resetOperation();
         } else if (operateur == 'multiplication') {
             multiplier();
-            operateur = '';
+            resetOperation();
         } else if (operateur == 'division') {
             diviser();
-            operateur = '';
+            resetOperation();
         }
 
         nb = result();
         renderView(nb);
+
+        // Bouton de tests
+    } else if (id == 'test') {
+        
     }
 }
 
-function resetControleur() {
+function resetOperation() {
     operateur = '';
 }
 
