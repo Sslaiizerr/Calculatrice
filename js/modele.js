@@ -5,8 +5,6 @@ let saveValue = 0;
 let historiqueCalcul = '';
 
 
-// Fonctions du modèle
-
 // Fonction qui affiche un chiffre à droite d'un nombre
 function ajoutChiffre(chiffre) {
 	if (!decimalPoint) {
@@ -28,7 +26,7 @@ function resetCalculCourant() {
 	// Fonction qui reset mais qui garde le calcul courant
 	nombre = 0;
 
-	return nombre
+	return nombre;
 }
 
 function resetEverything() {
@@ -38,7 +36,7 @@ function resetEverything() {
 
 	resetOperation();
 
-	return nombre
+	return nombre;
 }
 
 function removeChiffre() {
@@ -68,21 +66,21 @@ function addition() {
 	saveValue += nombre;
 	nombre = saveValue;
 
-	return nombre
+	return nombre;
 }
 
 function soustraction() {
 	saveValue -= nombre;
 	nombre = saveValue;
 
-	return nombre
+	return nombre;
 }
 
 function multiplier() {
 	saveValue *= nombre;
 	nombre = saveValue;
 
-	return nombre
+	return nombre;
 }
 
 function diviser() {
@@ -105,16 +103,15 @@ function inverse() {
 }
 
 function pourcentage() {
-	let keepValue = nombre;
 	nombre /= 100;
 
-	return keepValue;
+	return nombre * 100;
 }
 
 function result() {
 	saveValue = nombre;
 
-	return saveValue
+	return saveValue;
 }
 
 // Tentative d'ajout d'un historique de calcul qui pourra être affiché
